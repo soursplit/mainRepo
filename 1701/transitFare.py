@@ -1,3 +1,9 @@
+#
+# COMP 1701 Fall 2025 Assignment 1
+#
+# Nelson Wing
+#
+
 import math
 
 #Constants:

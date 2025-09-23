@@ -1,5 +1,6 @@
 import math
 
+#Constants:
 homageStatueLat = 51.1376194
 homageStatueLong = 114.13369889
 adultFare = 3.8
@@ -19,18 +20,18 @@ def haversineFormulae(startLat, startLong, endLat, endLong): #Cauculates the dis
 def fareReductionFormula(dist,fare): #Cauculates what the fare is reduced to based on the total distance traveled 
     return(fare-(1/(0.4+math.e**(3-dist))))
 
-def main()->None: #Main gets user input and calls functions 
-    latDegree = int(input("What is the lattitude's degrees? "))
-    latMin = int(input("What is the lattitude's minutes? "))
-    latSec =  float(input("What is the lattitude's secconds? (to three decimals) "))
+def main()->None: #Main gets user input and calls functions
+    startLatDegree = int(input("What is the lattitude's degrees? "))
+    startLatMin = int(input("What is the lattitude's minutes? "))
+    startLatSec =  float(input("What is the lattitude's secconds? (to three decimals) "))
 
-    longDegree = int(input("What is the longitude degrees? "))
-    longMin = int(input("What is the longitude minutes? "))
-    longsec = float(input("What is the longitude secconds? (to three decimals) "))
+    startLongDegree = int(input("What is the longitude degrees? "))
+    startLongMin = int(input("What is the longitude minutes? "))
+    startLongsec = float(input("What is the longitude secconds? (to three decimals) "))
 
-    totalDist = haversineFormulae(DMStoDD(latDegree,latMin,latSec),DMStoDD(longDegree,longMin,longsec),homageStatueLat,homageStatueLong)
+    totalDist = haversineFormulae(DMStoDD(startLatDegree,startLatMin,startLatSec),DMStoDD(startLongDegree,startLongMin,startLongsec),homageStatueLat,homageStatueLong)
     fareReducted = fareReductionFormula(totalDist,adultFare)
 
-    print(f"Travelling from user's starting location (at {latDegree}° {latMin}' {latSec}\" North, {longDegree}° {longMin}' {longsec}\" West) to the Homage statue on MRU campus,\nThe distance is approximately {round(totalDist,1)} km.\nTheir fare would be reduced to ${format(round(fareReducted,2),'.2f')}.")
+    print(f"\nTravelling from user's starting location (at {startLatDegree}° {startLatMin}' {startLatSec}\" North, {startLongDegree}° {startLongMin}' {startLongsec}\" West) to the Homage statue on MRU campus:\nThe distance is approximately {round(totalDist,1)} km.\nTheir fare would be reduced to ${format(round(fareReducted,2),'.2f')}.")
 
 main()

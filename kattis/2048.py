@@ -25,6 +25,35 @@ def movingLeft(rowList):
                 #print(f"after change: {rowList}\n")
     return rowList
 
+def movingUp(ArowList,BrowList,CrowList,DrowList):
+    mainList=[ArowList,BrowList,CrowList,DrowList]
+    for column in range(4):
+        print(f"{mainList[0][0]} {mainList[0][1]} {mainList[0][2]} {mainList[0][3]}\n{mainList[1][0]} {mainList[1][1]} {mainList[1][2]} {mainList[1][3]}\n{mainList[2][0]} {mainList[2][1]} {mainList[2][2]} {mainList[2][3]}\n{mainList[3][0]} {mainList[3][1]} {mainList[3][2]} {mainList[3][3]}\n\n")
+        for row in range(4):
+            mod = 0
+            while(True):
+                current = mainList[row+mod][column]
+                print(row,mod,row+mod-1)
+                next = mainList[row+mod-1][column]
+                
+                if current == "0":
+                    print('nonnumber')
+                    break
+                elif row == 0 + mod:
+                    print('EOF')
+                    break
+                elif next == '0':
+                    mainList[row+mod-1][column], mainList[row+mod][column] = mainList[row+mod][column], mainList[row+mod-1][column]
+                    mod -= 1
+                    print("0move")
+                elif next == current:
+                    mainList[row+mod-1][column], mainList[row+mod][column] = str(int(mainList[row+mod][column])**2), "0"
+                    mod -= 1
+                    print('combine')
+                elif next != current:
+                    print('nonmatching')
+                    break
+
 
 def main():
     rowOne = input().split(" ")
@@ -42,8 +71,8 @@ def main():
 
 
 
-    elif direction == 1: #up
-        print("haha")
+    elif direction == '1': #up
+        rowOne = movingUp(rowOne,rowTwo,rowThree,rowFour)
     elif direction == 2: #Right
         print("haha")
     elif direction == 3: #down

@@ -21,6 +21,7 @@ def haversineFormulae(startLat, startLong, endLat, endLong): #Cauculates the dis
     interValueOne = (math.sin(deltaLat/2)**2) + (math.cos(startLat)) * (math.cos(endLat)) * (math.sin(deltaLong/2)**2)
     interValueTwo = 2 * math.atan2(math.sqrt(interValueOne), math.sqrt(1-interValueOne))
     dist = avgEarthRaduis * interValueTwo
+    print(dist)
     return(dist/100)
 
 def fareReductionFormula(dist,fare): #Cauculates what the fare is reduced to based on the total distance traveled 

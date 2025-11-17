@@ -1,8 +1,11 @@
 
 def main():
-    abc = ["a",'b','c','d']
-    y = len(abc)
-    for x in range(len(abc)):
-        print(y-x-1)
-        print(abc[y-x-1])
+    i = 1
+    while i <= 3:
+        j =1
+        while j <= i:
+            print(j, end = ' ')
+            j += 1
+        print()
+        i += 1
 main()

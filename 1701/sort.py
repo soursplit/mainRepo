@@ -1,3 +1,5 @@
+import random
+
 def sort(listy):
     sortedList = listy
     for current in range(len(sortedList)):
@@ -8,5 +10,9 @@ def sort(listy):
         sortedList[current], sortedList[biggest] = sortedList[biggest], sortedList[current]
     return sortedList
 def main():
-    print(sort([5,62,3,78,2,3,4,666,41,1,2,3,4]))
+    listy=[]
+    for x in range(1000):
+        listy.append(random.randint(1,1000))
+    print(str(listy)+"\n")
+    print(sort(listy))
 main()

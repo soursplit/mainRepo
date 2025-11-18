@@ -1,11 +1,7 @@
 
 def main():
-    i = 1
-    while i <= 3:
-        j =1
-        while j <= i:
-            print(j, end = ' ')
-            j += 1
+    for x in range(1,5):
+        for y in range(1,5):
+            print (x*y, end = " ")
         print()
-        i += 1
 main()

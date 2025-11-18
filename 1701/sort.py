@@ -9,6 +9,8 @@ def sort(listy):
                 biggest=next
         sortedList[current], sortedList[biggest] = sortedList[biggest], sortedList[current]
     return sortedList
+
+
 def main():
     listy=[]
     for x in range(1000):
